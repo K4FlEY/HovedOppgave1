@@ -37,6 +37,8 @@ let gravity = 0.4;
 let gameOver = false;
 let score = 0;
 
+
+
 window.onload = function() {
     board = document.getElementById("board");
     board.height = boardHeight;
@@ -61,9 +63,10 @@ window.onload = function() {
     bottomPipeImg.src = "./bottompipe.png";
 
     requestAnimationFrame(update);
-    setInterval(placePipes, 1500); //every 1.5 seconds
+    setInterval(placePipes, 1500); //every 1.5 seconds,
     document.addEventListener("keydown", moveBird);
 }
+
 
 function update() {
     requestAnimationFrame(update);
@@ -166,3 +169,5 @@ function detectCollision(a, b) {
            a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
            a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
 }
+
+
