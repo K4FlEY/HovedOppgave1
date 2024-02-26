@@ -1,13 +1,37 @@
+document.addEventListener('DOMContentLoaded', function () {
+    let bgMusic = document.getElementById('bgMusic');
 
+    bgMusic.addEventListener('click', toggleMute);
+    document.addEventListener("keydown", function (e) {
+        if (e.code === "KeyM") {
+            toggleMute();
+        }
+    });
+
+    function toggleMute() {
+        if (bgMusic.paused) {
+            bgMusic.play();
+        } else {
+            bgMusic.pause();
+        }
+    }
+
+    // Play the background music after a user interaction (e.g., a click)
+    document.addEventListener('click', function () {
+        bgMusic.play();
+    });
+});
+
+    
 //board
 let board;
-let boardWidth = 360;
-let boardHeight = 640;
+let boardWidth = 800;
+let boardHeight = 700;
 let context;
 
 //bird
-let birdWidth = 34; //width/height ratio = 408/228 = 17/12
-let birdHeight = 24;
+let birdWidth = 80; //width/height ratio = 408/228 = 17/12
+let birdHeight = 50;
 let birdX = boardWidth/8;
 let birdY = boardHeight/2;
 let birdImg;
@@ -22,7 +46,7 @@ let bird = {
 //pipes
 let pipeArray = [];
 let pipeWidth = 64; //width/height ratio = 384/3072 = 1/8
-let pipeHeight = 512;
+let pipeHeight = 600;
 let pipeX = boardWidth;
 let pipeY = 0;
 
@@ -36,16 +60,22 @@ let gravity = 0.4;
 
 let gameOver = false;
 let score = 0;
+let highScore = 0;
 
 
 
-window.onload = function() {
+
+// press start button to start - not working yet
+context.fillText = 
+
+window.onload = function() 
+{
     board = document.getElementById("board");
     board.height = boardHeight;
     board.width = boardWidth;
     context = board.getContext("2d"); //used for drawing on the board
 
-    //draw flappy bird
+    // draw flappy bird
     // context.fillStyle = "green";
     // context.fillRect(bird.x, bird.y, bird.width, bird.height);
 
@@ -63,7 +93,7 @@ window.onload = function() {
     bottomPipeImg.src = "./bottompipe.png";
 
     requestAnimationFrame(update);
-    setInterval(placePipes, 1500); //every 1.5 seconds,
+    setInterval(placePipes, 2000); //every 2 seconds
     document.addEventListener("keydown", moveBird);
 }
 
@@ -106,21 +136,52 @@ function update() {
         pipeArray.shift(); //removes first element from the array
     }
 
-    //score
-    context.fillStyle = "white";
-    context.font="45px sans-serif";
-    context.fillText(score, 5, 45);
+  
 
+    //score
+    context.fillStyle = "red";
+    context.font="25px sans-serif";
+    context.fillText("Highscore:" + highScore, 5, 40); 
+    context.fillText("Your score:" + score, 5, 70);
     if (gameOver) {
-        context.fillText("GAME OVER", 5, 90);
+
+        context.font="18px sans-serif";
+        context.fillText("Play again? Press 'spaceKey' or 'ArrowUp'", 5, 120);
+        context.fillText("Press 'm' to mute or unmute,", 5, 150);
+
+        context.font="100px sans-serif";
+        context.fillText("Game Over", 5, 400);
+        
+   
     }
+
+
+    // highscore 
+
+    // document.getElementById("highScore").innerText = highScore;
+    if (localStorage.getItem("highScore") !== null){
+        highScore = parseInt(localStorage.getItem("highScore"));
+    }
+
+    if(score > highScore){
+        highScore = score;
+    }
+
+    localStorage.setItem("highScore", highScore.toString());
+
+
+
+
+
+   
 }
+
 
 function placePipes() {
     if (gameOver) {
         return;
     }
-
+ 
     //(0-1) * pipeHeight/2.
     // 0 -> -128 (pipeHeight/4)
     // 1 -> -128 - 256 (pipeHeight/4 - pipeHeight/2) = -3/4 pipeHeight
@@ -149,9 +210,11 @@ function placePipes() {
 }
 
 function moveBird(e) {
+
+
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX") {
         //jump
-        velocityY = -6;
+        velocityY = -7;
 
         //reset game
         if (gameOver) {
@@ -169,5 +232,6 @@ function detectCollision(a, b) {
            a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
            a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
 }
+
 
 
