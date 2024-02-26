@@ -27,12 +27,4 @@ await addDoc(
       telefon: "96737681"
   });
 
- m
-  await setDoc(
-    doc(db, "elever", "anil"), {
-     fornavn: "anil",
-     etternavn: "kandel",
-     epost: "anilkandel@gmail.con"
-     });
-
     
