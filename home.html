@@ -19,7 +19,8 @@
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1em; margin-bottom: 0.9em; overflow: hidden;
  border-radius: 8px; will-change: transform;">
   <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-AV5PXi8&#x2F;1V-cMC_BME-5iPKlrLVfyA&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-AV5PXi8&#x2F;1V-cMC_BME-5iPKlrLVfyA&#x2F;view?embed"  >
+    <!-- allow="fullscreen"allowfullscreen="allowfullscreen" -->
   </iframe>
 </div>
 
@@ -31,7 +32,7 @@
             </div>
             <div class="content">
                 <div id="login-content">
-                    <form>
+                    <form  onsubmit="loginUserHandler(event)" >
                         <div class="input-group">
                             <label for="login-username">Username:</label>
                             <input type="text" id="login-username" name="login-username" required>
@@ -44,18 +45,18 @@
                     </form>
                 </div>
                 <div id="signup-content" style="display: none;">
-                    <form>
+                    <form id="signup" onsubmit="signUpUserHandler(event)">
                         <div class="input-group">
-                            <label for="signup-username">Username:</label>
-                            <input type="text" id="signup-username" name="signup-username" required>
+                            <label for="signupusername">Username:</label>
+                            <input type="text" id="signupusername" name="signupusername" required>
                         </div>
                         <div class="input-group">
-                            <label for="signup-email">Email:</label>
-                            <input type="email" id="signup-email" name="signup-email" required>
+                            <label for="signupemail">Email:</label>
+                            <input type="email" id="signupemail" name="signupemail" required>
                         </div>
                         <div class="input-group">
-                            <label for="signup-password">Password:</label>
-                            <input type="password" id="signup-password" name="signup-password" required>
+                            <label for="signuppassword">Password:</label>
+                            <input type="password" id="signuppassword" name="signuppassword" required>
                         </div>
                         <button type="submit" class="btn">Sign Up</button>
                     </form>
@@ -78,7 +79,8 @@
     padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(71, 95, 143, 0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
     border-radius: 8px; will-change: transform;">
      <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-       src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-APIvRwk&#x2F;IEFVvcpXMdNJVZ2abidMHw&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+       src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-APIvRwk&#x2F;IEFVvcpXMdNJVZ2abidMHw&#x2F;view?embed" >
+       <!-- allowfullscreen="allowfullscreen" allow="fullscreen" -->
      </iframe>
    </div>
    <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-APIvRwk&#x2F;IEFVvcpXMdNJVZ2abidMHw&#x2F;view?utm_content=DAF-APIvRwk&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Design</a> by SAFAL KAFLE
@@ -105,5 +107,7 @@
         }
     }
 </script>
+<script src="firebase.js"></script>
+<script src="flappybird.js"></script>
     </body>
 </html>
