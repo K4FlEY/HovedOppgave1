@@ -1,25 +1,26 @@
-document.addEventListener('DOMContentLoaded', function () {
-    let bgMusic = document.getElementById('bgMusic');
+// set  an 'Audio' element in your HTML with id 'bgMusic'
+let bgMusic = document.getElementById('bgMusic');
+let isMuted = false;
 
-    bgMusic.addEventListener('click', toggleMute);
-    document.addEventListener("keydown", function (e) {
-        if (e.code === "KeyM") {
-            toggleMute();
-        }
-    });
-
-    function toggleMute() {
-        if (bgMusic.paused) {
-            bgMusic.play();
-        } else {
-            bgMusic.pause();
-        }
+document.addEventListener("keydown", function (e) {
+    if (e.code === "KeyM") {
+        toggleMute();
     }
+});
 
-    // Play the background music after a user interaction (e.g., a click)
-    document.addEventListener('click', function () {
+function toggleMute() {
+    if (isMuted) {
         bgMusic.play();
-    });
+        isMuted = false;
+    } else {
+        bgMusic.pause();
+        isMuted = true;
+    }
+}
+
+// Play the background music after a user interaction (e.g., a click)
+document.addEventListener('click', function () {
+    bgMusic.play();
 });
 
 

@@ -1,55 +1,17 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyA1mO4AkIGsx99BfRSW5tZa6dx4eA6owbg",
+  authDomain: "hovedoppgaver-1.firebaseapp.com",
+  projectId: "hovedoppgaver-1",
+  storageBucket: "hovedoppgaver-1.appspot.com",
+  messagingSenderId: "384045875150",
+  appId: "1:384045875150:web:07e404e625e9a2e3d3b59f"
+};
 
-
-// const username = document.getElementById("signup");
-
-// const password = document.getElementById("signup-password");
-// const email = document.getElementById("input-email");
-
-
-
-// signup.addEventListener("submit", async(e) => {
-//   e.preventDefault();
-//   const signup = form['signupusername'].value;
-//   const signuppassword = form['signuppassword'].value;
-//   const email = form['signupemail'].value;
-
-// })
-
-
-
-
-// // gpt
-// const auth = firebase.auth();
-
-//       function loginUserHandler(event) {
-//         event.preventDefault();
-//         const email = document.getElementById("login-username").value;
-//         const password = document.getElementById("login-password").value;
-//         auth.signInWithEmailAndPassword(email, password)
-//           .then(userCredential => {
-//             // Handle successful login
-//             const user = userCredential.user;
-//             console.log("User logged in:", user);
-//           })
-//           .catch(error => {
-//             // Handle login error
-//             console.error("Login error:", error.message);
-//           });
-//       }
-
-//       document.getElementById("signup-form").addEventListener("submit", function(event) {
-//         event.preventDefault();
-//         const email = document.getElementById("signup-email").value;
-//         const password = document.getElementById("signup-password").value;
-//         auth.createUserWithEmailAndPassword(email, password)
-//           .then(userCredential => {
-//             // Handle successful signup
-//             const user = userCredential.user;
-//             console.log("User signed up:", user);
-//           })
-//           .catch(error => {
-//             // Handle signup error
-//             console.error("Signup error:", error.message);
-//           });
-//       });
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
