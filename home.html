@@ -6,7 +6,7 @@
     <meta name="viewport" , content="width=device-width, initial-scale=1.0">
     <title>Flappy Bird</title>
     <link rel="stylesheet" href="flappybird.css">
-    <script src="game.html"></script>
+    <a href="game.html" class="openGame">Play flappy Bird</a>
 
 </head>
 
@@ -19,80 +19,85 @@
         <div class="container">
             <div class="logo">
                 <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-                    <!-- <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-AV5PXi8&#x2F;1V-cMC_BME-5iPKlrLVfyA&#x2F;view?embed"  >
-      </iframe> 
-    <!-- allow="fullscreen"allowfullscreen="allowfullscreen" -->
-
+                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+                border-radius: 8px; will-change: transform;">
+                    <iframe loading="lazy"
+                        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                        src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-AV5PXi8&#x2F;1V-cMC_BME-5iPKlrLVfyA&#x2F;view?embed"
+                        allowfullscreen="allowfullscreen" allow="fullscreen">
+                    </iframe>
                 </div>
-
-
+                <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-AV5PXi8&#x2F;1V-cMC_BME-5iPKlrLVfyA&#x2F;view?utm_content=DAF-AV5PXi8&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
+                    target="_blank" rel="noopener"></a> by SAFAL KAFLE
+        
             </div>
-            <div class="tabs">
-                <div class="tab" id="login-tab" onclick="toggleTab('login')">Have account? Login</div>
-                <div class="tab" id="signup-tab" onclick="toggleTab('signup')">or Sign Up and Create</div>
+
+        <div class="tabs">
+            <div class="tab" id="login-tab" onclick="toggleTab('login')">Have account? Login</div>
+            <div class="tab" id="signup-tab" onclick="toggleTab('signup')">or Sign Up and Create</div>
+        </div>
+        <div class="content">
+            <div id="login-content">
+
+                <div class="input-group">
+                    <form onsubmit="login()" id="loginForm">
+                        <label for="login-email">Email:</label>
+                        <input type="text" id="login-email" name="login-username" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="login-password" required>
+                </div>
+                <label id="error"></label>
+                <button type="submit" class="btn">Login</button>
+                </form>
             </div>
-            <div class="content">
-                <div id="login-content">
-                 
+            <div id="signup-content" style="display: none;">
+                <form id="signup" onsubmit="signUpUserHandler(event)">
                     <div class="input-group">
-                            <form onsubmit="login(event)" id="loginForm">
-                            <label for="login-email">Email:</label>
-                            <input type="text" id="login-email" name="login-username" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="login-password">Password:</label>
-                            <input type="password" id="login-password" name="login-password" required>
-                        </div>
-                        <button type="submit" class="btn">Login</button>
-                    </form>
-                </div>
-                <div id="signup-content" style="display: none;">
-                    <form id="signup" onsubmit="signUpUserHandler(event)">
-                        <div class="input-group">
-                            <label for="signupusername">Username:</label>
-                            <input type="text" id="signupusername" name="signupusername" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="signupemail">Email:</label>
-                            <input type="email" id="signupemail" name="signupemail" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="signuppassword">Password:</label>
-                            <input type="password" id="signuppassword" name="signuppassword" required>
-                        </div>
-                        <button type="submit" class="btn">Sign Up</button>
-                    </form>
-                </div>
+                        <label for="signupusername">Username:</label>
+                        <input type="text" id="signupusername" name="signupusername" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signupemail">Email:</label>
+                        <input type="email" id="signupemail" name="signupemail" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signuppassword">Password:</label>
+                        <input type="password" id="signuppassword" name="signuppassword" required>
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+                </form>
             </div>
         </div>
-
-        <button class="openGameButton"> <a href="game.html" class="openGame">Play Flappy bird</button> </a>
-
-        <h3> Welcome to Flappy Bird – the addictive and challenging game where you guide a bird through a series of
-            pipes. Now, with the added features of user login and signup, you can track your scores, compete with
-            friends, and personalize your gaming experience.</h3>
-        <h3>Press<span class="keys">'spaceKey','ArrowUp' or 'KeyX'</span> to start the game</h3>
-        <h3>Press<span class="keys">'m'</span> to mute orPress<span class="keys">'unmute'</span> </h3>
-
-
-        <h4> Have fun!</h4>
     </div>
 
 
-    <div style="position: relative; width: 100%; height: 0; padding-top: 50.4286%;
-    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(71, 95, 143, 0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+
+    <h3> Welcome to Flappy Bird – the addictive and challenging game where you guide a bird through a series of
+        pipes. Now, with the added features of user login and signup, you can track your scores, compete with
+        friends, and personalize your gaming experience.</h3>
+    <h3>Press<span class="keys">'spaceKey','ArrowUp' or 'KeyX'</span> to start the game</h3>
+    <h3>Press<span class="keys">'m'</span> to mute orPress<span class="keys">'unmute'</span> </h3>
+
+
+    <h4> Have fun!</h4>
+    </div>
+
+
+
+
+
+
+    <div style="position: relative; width: 100%; height: 0; padding-top: 141.4286%;
+    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
     border-radius: 8px; will-change: transform;">
         <iframe loading="lazy"
             style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-            src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-APIvRwk&#x2F;IEFVvcpXMdNJVZ2abidMHw&#x2F;view?embed">
-            <!-- allowfullscreen="allowfullscreen" allow="fullscreen" -->
+            src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-APIvRwk&#x2F;IEFVvcpXMdNJVZ2abidMHw&#x2F;view?embed"
+            allowfullscreen="allowfullscreen" allow="fullscreen">
         </iframe>
     </div>
-    <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-APIvRwk&#x2F;IEFVvcpXMdNJVZ2abidMHw&#x2F;view?utm_content=DAF-APIvRwk&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
-        target="_blank" rel="noopener">Design</a> by SAFAL KAFLE
 
 
     <!-- script for login-signup interactivity -->
@@ -117,10 +122,12 @@
         }
     </script>
 
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js"></script>
-    <script src="firebase.js" type="module"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js"></script>
+
+    <script type="module" src="firebase.js"></script>
+
 
 
 

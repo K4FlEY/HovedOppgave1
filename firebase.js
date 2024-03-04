@@ -1,9 +1,9 @@
 // Import the functions you need from the SDKs you need
 
   // Import the functions you need from the SDKs you need
-   //import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-   //import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-   //import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+   import { initializeAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+   import { initializeAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,11 +18,14 @@
   };
 
   // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
   const app = initializeApp(firebaseConfig);
+   const auth = initializeAuth(app);
+   const analytics = initializeAnalytics(app);
+  
 
-
-
- //index.js
+ //home.html
 document.getElementById("loginForm").addEventListener("submit", (event)=> {
   event.preventDefault();
 })
@@ -39,20 +42,24 @@ firebase.auth().onAuthStateChanged((user) => {
   if(!user){
     location.replace("home.html")
   }else{
-    document.getElementById("user").innerHTML = "Hello, "+user.loginemail
+    document.getElementById("user").innerHTML = "Hello, "+user.email;
   }
 })
 
 
 function login(){
-const loginemail =  document.getElementById("login-email").value
-const loginpassword =  document.getElementById("login-password").value
+  
+const loginemail =  document.getElementById("login-email").value;
+const loginpassword =  document.getElementById("login-password").value;
 firebase.auth().signInWithEmailAndPassword(loginemail, loginpassword)
+.catch((error) => {
+  document.getElementById("error").innerHTML = error.message;
+})
 
 }
 
 
 
-
+export { app, auth, analytics };
 
 
