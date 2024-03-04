@@ -5,6 +5,8 @@
         <meta name="viewport", content="width=device-width, initial-scale=1.0">
         <title>Flappy Bird</title>
         <link rel="stylesheet" href="flappybird.css">
+        <script src="game.html"></script>
+        
     </head>
 
     <body>
@@ -20,8 +22,9 @@
  border-radius: 8px; will-change: transform;">
   <!-- <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
     src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF-AV5PXi8&#x2F;1V-cMC_BME-5iPKlrLVfyA&#x2F;view?embed"  >
+      </iframe> 
     <!-- allow="fullscreen"allowfullscreen="allowfullscreen" -->
-  </iframe> -->
+
 </div>
 
               
@@ -32,7 +35,7 @@
             </div>
             <div class="content">
                 <div id="login-content">
-                    <form  onsubmit="loginUserHandler(event)" >
+                    <form  onsubmit="loginUserHandler(event)" id="loginForm">
                         <div class="input-group">
                             <label for="login-email">Email:</label>
                             <input type="text" id="login-email" name="login-username" required>
@@ -108,6 +111,8 @@
     }
 </script>
 <script src="firebase.js" type="module"></script>
-<script src="flappybird.js" type="module"></script>
-    </body>
+
+
+
+</body>
 </html>
