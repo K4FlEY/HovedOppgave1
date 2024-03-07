@@ -23,7 +23,9 @@
   const db = getFirestore(app);
    const auth = initializeAuth(app);
    const analytics = initializeAnalytics(app);
-  
+
+
+   export { app, auth, analytics };
 
  //home.html
 document.getElementById("loginForm").addEventListener("submit", (event)=> {
@@ -38,6 +40,8 @@ auth.onAuthStateChanged((user) => {
 })
 
 
+
+//problem with not user function. if not user is enabled from the start
 auth.onAuthStateChanged((user) => {
   if(!user){
     location.replace("home.html")
@@ -59,7 +63,5 @@ auth.signInWithEmailAndPassword(loginemail, loginpassword)
 }
 
 
-
-export { app, auth, analytics };
 
 
