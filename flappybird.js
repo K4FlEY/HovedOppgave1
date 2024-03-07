@@ -1,4 +1,4 @@
-// set  an 'Audio' element in your HTML with id 'bgMusic'
+// to set  an 'Audio' element in  HTML with id 'bgMusic'
 let bgMusic = document.getElementById('bgMusic');
 let isMuted = false;
 

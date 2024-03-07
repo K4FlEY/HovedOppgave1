@@ -31,14 +31,14 @@ document.getElementById("loginForm").addEventListener("submit", (event)=> {
 })
 
 
-firebase.auth().onAuthStateChanged((user) => {
+auth.onAuthStateChanged((user) => {
   if(user){
     location.replace("game.html")
   }
 })
 
 
-firebase.auth().onAuthStateChanged((user) => {
+auth.onAuthStateChanged((user) => {
   if(!user){
     location.replace("home.html")
   }else{
@@ -51,7 +51,7 @@ function login(){
   
 const loginemail =  document.getElementById("login-email").value;
 const loginpassword =  document.getElementById("login-password").value;
-firebase.auth().signInWithEmailAndPassword(loginemail, loginpassword)
+auth.signInWithEmailAndPassword(loginemail, loginpassword)
 .catch((error) => {
   document.getElementById("error").innerHTML = error.message;
 })
