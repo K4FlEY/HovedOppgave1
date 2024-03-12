@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+¨<!DOCTYPE html>
 <html>
 
 <head>
@@ -38,38 +38,42 @@
         </div>
         <div class="content">
             <div id="login-content">
-
-                <div class="input-group">
-                    <form onsubmit="login()" id="loginForm">
-                        <label for="login-email">Email:</label>
-                        <input type="text" id="login-email" name="login-username" required>
-                </div>
-                <div class="input-group">
-                    <label for="login-password">Password:</label>
-                    <input type="password" id="login-password" name="login-password" required>
-                </div>
-                <label id="error"></label>
-                <button type="submit" class="btn">Login</button>
+                <form onsubmit="login(event)" id="loginForm">
+                    <div class="input-group">
+                        <label for="loginemail">Email:</label>
+                        <input type="text" id="loginemail" name="" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="loginpassword">Password:</label>
+                        <input type="password" id="loginpassword" name="" required>
+                    </div>
+                    <label id="error"></label>
+                    <button type="submit" class="btn">Login</button>
                 </form>
             </div>
 
 
             
             <div id="signup-content" style="display: none;">
-                <form id="signup" onsubmit="signUpUserHandler(event)">
+                <form  onsubmit="signup(event)">
                     <div class="input-group">
-                        <label for="signupusername">Username:</label>
-                        <input type="text" id="signupusername" name="signupusername" required>
+                       
+                        <input type="text"  name="" id="signupfirstname" placeholder="First name" required>
                     </div>
                     <div class="input-group">
-                        <label for="signupemail">Email:</label>
-                        <input type="email" id="signupemail" name="signupemail" required>
+                     
+                        <input type="text"  name="" id="signuplastname" placeholder="Last name" required>
+                    </div>
+                  
+                    <div class="input-group">
+                       
+                        <input type="email"  name="" id="signupemail" placeholder="Email" required>
                     </div>
                     <div class="input-group">
-                        <label for="signuppassword">Password:</label>
-                        <input type="password" id="signuppassword" name="signuppassword" required>
+                       
+                        <input type="password"  name="" id="signuppassword" placeholder="Password" required>
                     </div>
-                    <button type="submit" class="btn">Sign Up</button>
+                    <button id="signIn" value="Sign up" type="submit" class="btn">Sign Up</button>
                 </form>
             </div>
         </div>
@@ -125,15 +129,7 @@
         }
     </script>
 
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js"></script>
-
-    <script type="module" src="firebase.js"></script>
-
-
-
-
 </body>
+<script src="firebase.js"  type="module"></script>
 
 </html>

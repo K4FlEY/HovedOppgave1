@@ -1,67 +1,72 @@
 // Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
-  // Import the functions you need from the SDKs you need
-   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-   import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-   import { initializeAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-   import { initializeAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyA1mO4AkIGsx99BfRSW5tZa6dx4eA6owbg",
+  authDomain: "hovedoppgaver-1.firebaseapp.com",
+  projectId: "hovedoppgaver-1",
+  storageBucket: "hovedoppgaver-1.appspot.com",
+  messagingSenderId: "384045875150",
+  appId: "1:384045875150:web:07e404e625e9a2e3d3b59f"
+};
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyA1mO4AkIGsx99BfRSW5tZa6dx4eA6owbg",
-    authDomain: "hovedoppgaver-1.firebaseapp.com",
-    projectId: "hovedoppgaver-1",
-    storageBucket: "hovedoppgaver-1.appspot.com",
-    messagingSenderId: "384045875150",
-    appId: "1:384045875150:web:07e404e625e9a2e3d3b59f"
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth();
+
+// Getting all the objects of HTML
+let firstname = document.getElementById("signupfirstname");
+let lastname = document.getElementById("signuplastname");
+let email = document.getElementById("signupemail");
+let password = document.getElementById("signuppassword");
+let loginemail = document.getElementById("loginemail");
+let loginpassword = document.getElementById("loginpassword");
+
+// Function to store data
+//signup funtion
+window.signup = function (e) {
+  e.preventDefault();
+  var obj = {
+    firstname: signupfirstname.value,
+    lastname: signuplastname.value,
+    email: signupemail.value,
+    password: signuppassword.value,
   };
 
-  // Initialize Firebase
-  // firebase.initializeApp(firebaseConfig);
+  createUserWithEmailAndPassword(auth, obj.email,obj.password)
+    .then(function (success) {
+      alert("Signup Successfully");
+      
+    })
+    .catch(function (err) {
+      alert("Error: " + err.message);
+    });
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-   const auth = initializeAuth(app);
-   const analytics = initializeAnalytics(app);
-
-
-   export { app, auth, analytics };
-
- //home.html
-document.getElementById("loginForm").addEventListener("submit", (event)=> {
-  event.preventDefault();
-})
-
-
-auth.onAuthStateChanged((user) => {
-  if(user){
-    location.replace("game.html")
-  }
-})
+  console.log(obj);
+};
 
 
 
-//problem with not user function. if not user is enabled from the start
-auth.onAuthStateChanged((user) => {
-  if(!user){
-    location.replace("home.html")
-  }else{
-    document.getElementById("user").innerHTML = "Hello, "+user.email;
-  }
-})
 
-
-function login(){
+//login function
+ window.login = function(e){
+  e.preventDefault();
+  var obj = {
+    email: loginemail.value,
+    password: loginpassword.value
+  };
+  signInWithEmailAndPassword(auth, obj.email,obj.password)
+  .then(function(success){
+   
+    alert("loggined successfully")
+    window.location.replace("game.html")
+  })
+  .catch(function(err){
+    alert("login error")
+  });
   
-const loginemail =  document.getElementById("login-email").value;
-const loginpassword =  document.getElementById("login-password").value;
-auth.signInWithEmailAndPassword(loginemail, loginpassword)
-.catch((error) => {
-  document.getElementById("error").innerHTML = error.message;
-})
-
+  console.log(obj)
 }
-
-
-
-
