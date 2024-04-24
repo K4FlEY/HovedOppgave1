@@ -29,7 +29,7 @@ document.addEventListener('click', function () {
 //board
 let board;
 let boardWidth = 800;
-let boardHeight = 700;
+let boardHeight = 600;
 let context;
 
 //bird
@@ -82,7 +82,7 @@ window.onload = function()
     // context.fillStyle = "green";
     // context.fillRect(bird.x, bird.y, bird.width, bird.height);
 
-    //load images
+    //load image
     birdImg = new Image();
     birdImg.src = "./flappybird.png";
     birdImg.onload = function() {
@@ -144,7 +144,7 @@ function update() {
     //score
     context.fillStyle = "red";
     context.font="25px sans-serif";
-    context.fillText("Highscore:" + highScore, 5, 40); 
+    context.fillText("Your Highscore:" + highScore, 5, 40); 
     context.fillText("Your score:" + score, 5, 70);
     if (gameOver) {
 
